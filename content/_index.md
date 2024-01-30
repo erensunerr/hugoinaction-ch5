@@ -5,6 +5,24 @@ description: Welcome to the website of Acme Corporation, the
     precise shape creations that are ready to use.
 subtitle: shaping the **world** for you to **live in**
 explore: blog
+testimonials:
+  - author: Brad
+    from: Fictional Inc.
+    content: >
+            We have been using the shapes from ACME
+            in our products for ages. They are precise,
+            smooth, and very well built.
+      
+  - author: Random
+    from: Random Education
+    content: >
+            Sharp and sturdy - Just like you want them.
+      
+  - author: Richter
+    from: Richter Measures
+    content: >
+            Undoubted accuracy. Safety guarantee.
+            We love what ACME delivers.
 ---
 Acme is the **best**
 ==================

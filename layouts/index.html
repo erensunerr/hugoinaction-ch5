@@ -37,6 +37,46 @@
       <a href="{{"explore" | .Param | ref .}}">Explore</a>
     </section>
     <section id="description">{{.Content}}</section>
+    {{with .Param "testimonials"}}
+        <section id="testimonials">
+            <h1>Customer endorsement</h1>
+            <div>
+                <ol>
+                {{range .}}
+                    <li>
+                        <p>{{.content}}</p>
+                        <div>
+                            <h2>{{.author}}</h2>
+                            <h3>{{.from}}</h3>
+                        </div>
+                    </li>
+                {{end}}
+                </ol>
+            </div>
+        </section>
+    {{end}}
+    {{with .Resources.GetMatch "products.csv"}}
+        <section id="products">
+            <h1>Our Products</h1>
+            {{with . | transform.Unmarshal
+                (dict "delimeter" ",")}}
+                <table>
+                    {{ range $i, $value := .}}
+                    {{if eq $i 0}}<thead>{{end}}
+                        <tr>
+                            {{range $value}}
+                            <td>{{.}}</td>
+                            {{end}}
+                        </tr>
+                    {{if eq $i 0}}</thead>{{end}}
+                    {{end}}
+                </table>
+                {{end}}
+                <a download href="{{.Permalink}}">
+                    Download listing
+                </a>
+        </section>
+    {{end}}
     {{with (where site.RegularPages ".Section" "in" site.Params.mainSections)}}
     <section id="blog">
         <h1>From our blog</h1>
